@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Industries &amp; Capabilities · Ape Vision Global</title>
+<meta content="What Ape Vision Global does, and exactly which company is responsible for what — across engineering, trading, investment, real estate, CSR and pop-culture retail." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --navy:#0E1B33;
+    --ink:#2B3648;
+    --ink-soft:#5B6576;
+    --blue:#1E4FD8;
+    --teal:#1FB8AC;
+    --violet:#7C5CE0;
+    --paper:#FFFFFF;
+    --paper-soft:#F6F8FB;
+    --line:#DFE4EC;
+    --line-strong:#B9C1D0;
+    --grad: linear-gradient(115deg, var(--blue) 0%, var(--teal) 55%, var(--violet) 100%);
+    --gold:#C9A34E;
+    --font-display:'Fraunces', serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,h4{font-family:var(--font-display);color:var(--navy);margin:0;font-weight:600;}
+  p{margin:0;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:13.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--blue);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:1px;
+    background:var(--blue);
+    display:inline-block;
+  }
+  .btn{
+    font-family:var(--font-mono);
+    font-size:14.5px;
+    letter-spacing:.04em;
+    padding:14px 26px;
+    border-radius:2px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    border:1px solid var(--navy);
+    transition:all .25s ease;
+    cursor:pointer;
+  }
+  .btn-solid{background:var(--navy);color:#fff;}
+  .btn-solid:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-2px);}
+  .btn-outline{color:var(--navy);}
+  .btn-outline:hover{background:var(--navy);color:#fff;transform:translateY(-2px);}
+  .btn-sm{font-size:13px;padding:10px 18px;}
+  .btn svg{width:14px;height:14px;transition:transform .25s ease;}
+  .btn:hover svg{transform:translateX(3px);}
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);}
+  header::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:rgba(255,255,255,.9);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  }
+  .nav-row{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;max-width:1200px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{height:34px;width:auto;}
+  .brand-word{font-family:var(--font-body);font-weight:700;font-size:17px;letter-spacing:.03em;color:var(--navy);}
+  .brand-word span{display:block;font-family:var(--font-mono);font-weight:400;font-size:11px;letter-spacing:.1em;color:var(--ink-soft);text-transform:uppercase;margin-top:1px;}
+  nav ul{list-style:none;display:flex;gap:32px;margin:0;padding:0;}
+  nav a{font-size:14.5px;font-weight:500;color:var(--ink);position:relative;padding:4px 0;}
+  nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--blue);transition:width .25s ease;}
+  nav a:hover::after{width:100%;}
+  nav a.active{color:var(--blue);}
+  nav a.active::after{width:100%;}
+  .nav-cta{display:flex;gap:12px;}
+  .nav-links{display:flex;align-items:center;gap:36px;}
+  .nav-toggle{display:none;}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;z-index:60;}
+  .hamburger span{width:22px;height:2px;background:var(--navy);display:block;transition:all .25s ease;}
+  .nav-toggle:checked ~ .hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle:checked ~ .hamburger span:nth-child(2){opacity:0;}
+  .nav-toggle:checked ~ .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:76px 0 64px;overflow:hidden;border-bottom:1px solid var(--line);}
+  .hero .wrap{max-width:760px;}
+  h1.hero-head{font-size:clamp(32px, 4.6vw, 50px);line-height:1.1;letter-spacing:-.01em;font-weight:600;margin:22px 0 20px;}
+  h1.hero-head em{font-style:italic;font-weight:500;color:var(--blue);}
+  .hero-sub{font-size:clamp(15.5px, 1.6vw, 17.5px);color:var(--ink-soft);max-width:620px;}
+  /* ---------- section shell ---------- */
+  section{padding:clamp(56px, 8vw, 92px) 0;}
+  section.soft{background:var(--paper-soft);}
+  .section-head{max-width:680px;margin-bottom:clamp(32px, 5vw, 50px);}
+  .section-head h2{font-size:clamp(26px, 3.2vw, 34px);line-height:1.2;margin-top:14px;}
+  .section-lead{font-size:16.5px;color:var(--ink-soft);max-width:680px;margin-top:18px;}
+  /* ---------- what we do: four capabilities ---------- */
+  .do-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .do-card{background:var(--paper);padding:28px 24px;display:flex;flex-direction:column;gap:10px;}
+  .do-card .do-idx{font-family:var(--font-mono);font-size:12px;color:var(--blue);letter-spacing:.1em;}
+  .do-card h4{font-size:17.5px;}
+  .do-card p{font-size:14.5px;color:var(--ink-soft);}
+  /* ---------- who does what: role grid ---------- */
+  .role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .role-card{
+    border:1px solid var(--line);border-radius:10px;background:var(--paper);
+    padding:28px 26px;display:flex;flex-direction:column;gap:14px;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .role-card:hover{border-color:var(--blue);transform:translateY(-3px);}
+  .role-num{font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);letter-spacing:.1em;}
+  .role-card h3{font-size:19.5px;line-height:1.25;}
+  .role-tag{
+    font-family:var(--font-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--blue);font-weight:600;
+  }
+  .role-card p.role-desc{font-size:14.5px;color:var(--ink-soft);flex:1;}
+  .role-focus{display:flex;flex-wrap:wrap;gap:8px;}
+  .role-focus span{
+    font-family:var(--font-mono);font-size:11.5px;color:var(--navy);
+    border:1px solid var(--line-strong);border-radius:20px;padding:5px 12px;
+  }
+  .role-card a.role-link{
+    font-size:13px;font-weight:600;color:var(--navy);display:inline-flex;align-items:center;gap:6px;margin-top:4px;
+  }
+  .role-card a.role-link svg{width:11px;height:11px;transition:transform .25s ease;}
+  .role-card a.role-link:hover svg{transform:translateX(3px);}
+  /* ---- The Kollektor: a brand under Ape Vision Trading — black & gold, always ---- */
+  .kollektor-band{
+    background:#0A0A0A;border-radius:12px;color:rgba(244,233,207,.8);
+    padding:clamp(30px, 4vw, 44px);
+    display:grid;grid-template-columns:1fr .8fr;gap:36px;align-items:center;
+  }
+  .kollektor-band .eyebrow{color:var(--gold);}
+  .kollektor-band .eyebrow::before{background:var(--gold);}
+  .kollektor-band h3{color:var(--gold);font-size:clamp(21px, 2.4vw, 26px);margin:12px 0 10px;}
+  .kollektor-band p{color:rgba(244,233,207,.75);font-size:15px;max-width:460px;}
+  .kollektor-band .role-focus span{border-color:rgba(201,163,78,.55);color:var(--gold);}
+  .kollektor-band a.role-link{color:var(--gold);margin-top:6px;display:inline-flex;align-items:center;gap:6px;}
+  .kollektor-band a.role-link svg{width:11px;height:11px;flex:none;transition:transform .25s ease;}
+  .kollektor-band a.role-link:hover svg{transform:translateX(3px);}
+  .kollektor-imgph{
+    position:relative;border:1px dashed rgba(201,163,78,.4);border-radius:8px;
+    background:repeating-linear-gradient(135deg, rgba(201,163,78,.06) 0 2px, transparent 2px 14px), #0A0A0A;
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+    min-height:160px;aspect-ratio:16/10;
+  }
+  .kollektor-imgph .imgph-label{
+    position:relative;z-index:1;
+    font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+    background:rgba(0,0,0,.65);border:1px solid rgba(201,163,78,.4);color:var(--gold);
+    padding:7px 12px;display:flex;flex-direction:column;gap:3px;line-height:1.5;text-align:center;
+  }
+  /* ---------- closing CTA ---------- */
+  .closing{background:var(--navy);color:#fff;position:relative;overflow:hidden;}
+  .closing::before{content:"";position:absolute;inset:0;background:var(--grad);opacity:.14;}
+  .closing .wrap{position:relative;}
+  .closing h2{color:#fff;font-size:clamp(30px, 4.2vw, 44px);max-width:760px;line-height:1.18;}
+  .closing h2 em{color:var(--teal);font-style:italic;}
+  .closing-ctas{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;}
+  .closing .btn-outline{border-color:rgba(255,255,255,.4);color:#fff;}
+  .closing .btn-outline:hover{background:#fff;color:var(--navy);}
+  .closing .btn-solid{background:#fff;color:var(--navy);border-color:#fff;}
+  .closing .btn-solid:hover{background:var(--teal);border-color:var(--teal);color:#fff;}
+  /* ---------- footer ---------- */
+  footer{background:var(--navy);color:rgba(255,255,255,.82);position:relative;}
+  footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);}
+  .foot-main{padding:80px 0 52px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;}
+  .foot-brand .brand-word{font-size:18px;color:#fff;}
+  .foot-brand .brand-word span{color:rgba(255,255,255,.5);}
+  .foot-brand p{font-size:15px;color:rgba(255,255,255,.55);margin-top:18px;max-width:300px;line-height:1.7;}
+  .foot-col h5{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px;font-weight:500;}
+  .foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px;}
+  .foot-col a{font-size:15px;color:rgba(255,255,255,.75);transition:color .2s ease;}
+  .foot-col a:hover{color:var(--teal);}
+  .foot-bottom{display:flex;align-items:center;justify-content:space-between;padding:26px 0;border-top:1px solid rgba(255,255,255,.12);font-size:14.5px;color:rgba(255,255,255,.45);}
+  .foot-bottom-links{display:flex;gap:26px;}
+  .foot-bottom-links a{font-size:14.5px;color:rgba(255,255,255,.45);}
+  .foot-bottom-links a:hover{color:#fff;}
+  /* ---------- tablet (≤1024px) ---------- */
+  @media (max-width:1024px){
+    .wrap{padding:0 32px;}
+    .nav-row{padding:16px 32px;}
+    .do-grid{grid-template-columns:repeat(2,1fr);}
+    .role-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  /* ---------- nav collapses (≤900px) ---------- */
+  @media (max-width:900px){
+    .hamburger{display:flex;}
+    .hamburger span{background:var(--navy);}
+    .nav-toggle:checked ~ .hamburger span{background:var(--navy);}
+    .nav-links{
+      position:fixed;top:69px;left:0;right:0;z-index:55;
+      max-height:calc(100vh - 69px);
+      background:var(--navy);
+      flex-direction:column;align-items:flex-start;
+      gap:0;padding:8px 28px 40px;
+      overflow-y:auto;-webkit-overflow-scrolling:touch;
+      transform:translateY(-12px);opacity:0;visibility:hidden;pointer-events:none;
+      transition:opacity .22s ease, transform .22s ease;
+      box-shadow:0 12px 28px rgba(14,27,51,.25);
+    }
+    .nav-toggle:checked ~ .nav-links{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;}
+    .nav-links nav{width:100%;}
+    .nav-links nav ul{flex-direction:column;gap:0;width:100%;}
+    .nav-links nav ul li{width:100%;border-bottom:1px solid rgba(255,255,255,.14);}
+    .nav-links nav ul li a{display:block;padding:16px 2px;font-size:17px;color:#fff;}
+    .nav-links nav a::after{background:var(--teal);}
+    .nav-links .nav-cta{flex-direction:column;width:100%;gap:12px;margin-top:20px;}
+    .nav-links .nav-cta .btn{width:100%;justify-content:center;}
+    .nav-links .btn-outline{border-color:rgba(255,255,255,.4);color:#fff;}
+    .nav-links .btn-outline:hover{background:#fff;color:var(--navy);}
+    .nav-links .btn-solid{background:var(--teal);border-color:var(--teal);color:#fff;}
+    .nav-links .btn-solid:hover{background:#fff;color:var(--navy);border-color:#fff;}
+    .foot-main{grid-template-columns:1fr 1fr;gap:36px 28px;}
+    .kollektor-band{grid-template-columns:1fr;}
+    .kollektor-band .kollektor-imgph{order:-1;}
+  }
+  /* ---------- phone (≤640px) ---------- */
+  @media (max-width:640px){
+    .wrap{padding:0 20px;}
+    .nav-row{padding:14px 20px;}
+    .brand-word span{display:none;}
+    section{padding:48px 0;}
+    .hero{padding:40px 0 48px;}
+    .do-grid{grid-template-columns:1fr;}
+    .role-grid{grid-template-columns:1fr;}
+    .kollektor-band{padding:28px 22px;}
+    .closing-ctas .btn{width:100%;justify-content:center;}
+    .foot-main{grid-template-columns:1fr;gap:32px;padding:52px 0 36px;}
+    .foot-bottom{flex-direction:column;gap:14px;align-items:flex-start;padding:22px 0;}
+  }
+</style>
+</head>
+<body>
+<header>
+<div class="nav-row">
+<a class="brand" href="index.html">
+<img alt="Ape Vision Global" src="ape-vision-logo-01.png"/>
+</a>
+<input class="nav-toggle" id="nav-toggle" type="checkbox"/>
+<label aria-label="Toggle menu" class="hamburger" for="nav-toggle">
+<span></span><span></span><span></span>
+</label>
+<div class="nav-links">
+<nav>
+<ul>
+<li><a href="about-us.html">About</a></li>
+<li><a href="our-businesses.html">Businesses</a></li>
+<li><a class="active" href="industries-capabilities.html">Industries</a></li>
+<li><a href="global-presence.html">Global Presence</a></li>
+<li><a href="founders-perspective.html">Leadership</a></li>
+</ul>
+</nav>
+<div class="nav-cta">
+<a class="btn btn-outline" href="contact.html">Contact</a>
+<a class="btn btn-solid" href="partner-with-us.html">Partner With Us</a>
+</div>
+</div>
+</div>
+</header>
+<!-- ============ HERO ============ -->
+<section class="hero">
+<div class="wrap">
+<div class="eyebrow" style="margin-bottom:24px;">Industries &amp; Capabilities</div>
+<h1 class="hero-head">One group. <em>Six companies.</em> Each with one job.</h1>
+<p class="hero-sub">Ape Vision Global is a diversified, entrepreneur-led group. Rather than one company doing everything, each business below owns a specific part of the Group's work — so it's always clear who does what.</p>
+</div>
+</section>
+<!-- ============ WHAT THE GROUP DOES ============ -->
+<section>
+<div class="wrap">
+<div class="section-head">
+<div class="eyebrow">What the Group does</div>
+<h2>Four things, done end-to-end.</h2>
+<p class="section-lead">Across every business, Ape Vision Global works the same opportunity from four angles — advising on it, building it, trading around it, and investing in it.</p>
+</div>
+<div class="do-grid">
+<div class="do-card"><div class="do-idx">Advise &amp; Build</div><h4>Engineering &amp; EPC</h4><p>Feasibility, design, procurement and construction for infrastructure and energy projects.</p></div>
+<div class="do-card"><div class="do-idx">Trade &amp; Source</div><h4>Global Trade</h4><p>Sourcing, distribution and cross-border commodity trading across sectors.</p></div>
+<div class="do-card"><div class="do-idx">Invest &amp; Develop</div><h4>Investment &amp; Real Estate</h4><p>Capital deployed into diversified businesses, assets and property development.</p></div>
+<div class="do-card"><div class="do-idx">Serve &amp; Give Back</div><h4>People, Retail &amp; CSR</h4><p>Manpower and visa services, consumer retail, and community-focused initiatives.</p></div>
+</div>
+</div>
+</section>
+<!-- ============ WHO DOES WHAT ============ -->
+<section class="soft">
+<div class="wrap">
+<div class="section-head">
+<div class="eyebrow">Who does what</div>
+<h2>Six companies. One responsibility each.</h2>
+<p class="section-lead">A quick reference for exactly which company to think of for a given need. The Kollektor is a consumer brand under Ape Vision Trading, not a separate company.</p>
+</div>
+<div class="role-grid">
+<div class="role-card">
+<div class="role-num">01</div>
+<span class="role-tag">Engineering &amp; Infrastructure</span>
+<h3>Ape Vision Techinfra</h3>
+<p class="role-desc">Owns the Group's engineering and EPC delivery — AI-enabled data centres, utility-scale solar, green hydrogen and Napier-grass-to-CBG projects, run in both EPC and developer/investor mode from feasibility to commissioning.</p>
+<div class="role-focus"><span>Data Centres</span><span>Solar &amp; Clean Energy</span><span>EPC &amp; PMC</span><span>DPR &amp; Feasibility</span></div>
+<a class="role-link" href="ape-vision-techinfra.html">Explore Ape Vision Techinfra <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+<div class="role-card">
+<div class="role-num">02</div>
+<span class="role-tag">Global Trade &amp; Sourcing</span>
+<h3>Ape Vision Trading</h3>
+<p class="role-desc">Owns the Group's global sourcing and commodity trading — food &amp; agriculture, metals &amp; minerals, energy &amp; industrial products — connecting suppliers, buyers and markets across borders.</p>
+<div class="role-focus"><span>Global Sourcing</span><span>Commodity Trading</span><span>Import / Export</span><span>Market Access</span></div>
+<a class="role-link" href="ape-vision-trading.html">Explore Ape Vision Trading <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+<div class="role-card">
+<div class="role-num">03</div>
+<span class="role-tag">Manpower, Visa &amp; Education</span>
+<h3>Ape Vision LLP</h3>
+<p class="role-desc">Owns manpower supply, visa &amp; related services, and overseas-education support — connecting skilled talent with global opportunities from sourcing and documentation through to visa facilitation and placement.</p>
+<div class="role-focus"><span>Manpower Supply</span><span>Visa Services</span><span>Overseas Education</span></div>
+<a class="role-link" href="ape-vision-llp.html">Explore Ape Vision LLP <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+<div class="role-card">
+<div class="role-num">04</div>
+<span class="role-tag">Diversified Investment</span>
+<h3>Ape Premier</h3>
+<p class="role-desc">Owns the Group's diversified investment activity — deploying capital into hospitality, healthcare, cosmetics, food park &amp; agriculture, and warehousing &amp; cold storage.</p>
+<div class="role-focus"><span>Hospitality</span><span>Healthcare</span><span>Warehousing</span></div>
+<a class="role-link" href="ape-premier.html">Explore Ape Premier <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+<div class="role-card">
+<div class="role-num">05</div>
+<span class="role-tag">Real Estate</span>
+<h3>Ape Vision Realty</h3>
+<p class="role-desc">Owns real estate development and asset management — commercial, industrial and integrated real estate projects from planning through to delivery.</p>
+<div class="role-focus"><span>Development</span><span>Asset Management</span><span>Industrial Parks</span></div>
+<a class="role-link" href="ape-vision-realty.html">Explore Ape Vision Realty <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+<div class="role-card">
+<div class="role-num">06</div>
+<span class="role-tag">CSR &amp; Community</span>
+<h3>Ape Vision Foundation</h3>
+<p class="role-desc">Owns the Group's social impact — education, livelihood, healthcare access and community-development initiatives run alongside our commercial businesses.</p>
+<div class="role-focus"><span>Education</span><span>Livelihood</span><span>Healthcare Access</span></div>
+<a class="role-link" href="our-businesses.html#foundation">Explore Ape Vision Foundation <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+</div>
+</section>
+<!-- ============ THE KOLLEKTOR (brand under Ape Vision Trading) ============ -->
+<section>
+<div class="wrap">
+<div class="kollektor-band">
+<div>
+<div class="eyebrow">A brand of Ape Vision Trading</div>
+<h3>The Kollektor</h3>
+<p>The Group's consumer-facing brand for anime, trading card games, collectibles and pop culture — taking global sourcing and cultural trends into consumer-facing markets.</p>
+<div class="role-focus" style="margin:14px 0 4px;"><span>Trading Cards</span><span>Anime</span><span>Collectibles</span><span>Pop Culture</span></div>
+<a class="role-link" href="https://thekollektor.com/" rel="noopener" target="_blank">Visit The Kollektor <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+<div class="kollektor-imgph"><img alt="The Kollektor brand image 16:10 · replace on upload" src="" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block;"/>
+<div class="imgph-label"><b style="color:var(--gold);">The Kollektor</b>Brand image · 16:10<br/>replace on upload</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ============ CLOSING ============ -->
+<section class="closing">
+<div class="wrap">
+<div class="eyebrow" style="color:var(--teal);">Building tomorrow's businesses today</div>
+<h2 style="margin-top:18px;">Know who to talk to.<br/><em>Let's build what comes next, together.</em></h2>
+<div class="closing-ctas">
+<a class="btn btn-solid" href="our-businesses.html">Explore Our Businesses</a>
+<a class="btn btn-outline" href="partner-with-us.html">Partner With Us</a>
+</div>
+</div>
+</section>
+<footer>
+<div class="wrap foot-main">
+<div class="foot-brand">
+<a class="brand" href="index.html" style="margin-bottom:4px;">
+<img alt="Ape Vision Global" src="ape-vision-logo-01.png" style="height:30px;"/>
+</a>
+<p>Building tomorrow's businesses today. Engineering · Infrastructure · Energy · Technology · Global Trade · Hospitality · Real Estate · CSR.</p>
+</div>
+<div class="foot-col">
+<h5>Company</h5>
+<ul>
+<li><a href="about-us.html">About Us</a></li>
+<li><a href="our-businesses.html">Our Businesses</a></li>
+<li><a href="founders-perspective.html">Founder's Perspective</a></li>
+<li><a href="global-presence.html">Global Presence</a></li>
+</ul>
+</div>
+<div class="foot-col">
+<h5>Businesses</h5>
+<ul>
+<li><a href="ape-vision-llp.html">Ape Vision LLP</a></li>
+<li><a href="ape-vision-techinfra.html">Ape Vision Techinfra</a></li>
+<li><a href="our-businesses.html#trading">Ape Vision Trading</a></li>
+<li><a href="our-businesses.html#foundation">Ape Vision Foundation</a></li>
+<li><a href="https://thekollektor.com/">The Kollektor ↗</a></li>
+</ul>
+</div>
+<div class="foot-col">
+<h5>Get in Touch</h5>
+<ul>
+<li><a href="partner-with-us.html">Partner With Us</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="industries-capabilities.html">Industries &amp; Capabilities</a></li>
+</ul>
+</div>
+</div>
+<div class="wrap foot-bottom">
+<span>© 2026 Ape Vision Global. All rights reserved.</span>
+<div class="foot-bottom-links">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Use</a>
+</div>
+</div>
+</footer>
+</body>
+</html>
