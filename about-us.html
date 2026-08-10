@@ -184,16 +184,54 @@
   .split-copy p:first-child{margin-top:0;}
   .split-copy p.lede{font-size:17px;color:var(--ink);font-family:var(--font-display);font-weight:500;line-height:1.5;}
   /* ---------- journey list ---------- */
-  .journey-list{margin-top:32px;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);}
-  .journey-list li{
-    list-style:none;padding:16px 0;border-bottom:1px solid var(--line);
-    font-family:var(--font-mono);font-size:13px;color:var(--navy);letter-spacing:.02em;
-    display:flex;align-items:baseline;gap:14px;
-  }
-  .journey-list li::before{content:"→";color:var(--blue);font-size:13px;}
-  .connect-lines{margin-top:28px;display:grid;gap:10px;}
-  .connect-lines p{font-size:14.5px;color:var(--ink-soft);padding-left:18px;border-left:2px solid var(--line-strong);}
-  .connect-lines p b{color:var(--navy);font-weight:600;}
+.journey-list {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.journey-list li {
+  list-style: none;
+  padding: 18px 4px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--navy);
+  letter-spacing: .01em;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.journey-list li::before {
+  content: "→";
+  color: var(--blue);
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.connect-lines {
+  margin-top: 24px;
+  display: grid;
+  gap: 16px;
+}
+
+.connect-lines p {
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  padding-left: 18px;
+  border-left: 2px solid var(--line-strong);
+  margin: 0;
+}
+
+.connect-lines p b {
+  color: var(--navy);
+  font-weight: 600;
+}
   /* ---------- mission / vision ---------- */
   .mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
   .mv-card{
